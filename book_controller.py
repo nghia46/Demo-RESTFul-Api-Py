@@ -51,6 +51,36 @@ def create_book():
     # Return JSON response with the ID of the newly created book
     return jsonify({'_id': str(book_id)}), 201
 
+# Route to add multiple books
+@app.route('/api/books/batch', methods=['POST'])
+def add_books():
+    # Get data from request body
+    data = request.json
+
+    # Check if data is provided and is a list
+    if not data or not isinstance(data, list):
+        return jsonify({'error': 'Data must be a non-empty list of books'}), 400
+
+    # List to store the IDs of the newly created books
+    created_books_ids = []
+
+    # Iterate over each book data in the list
+    for book_data in data:
+        # Create a Book instance from the book data
+        new_book = Book(
+            title=book_data.get('Title'),
+            author=book_data.get('Author'),
+            genre=book_data.get('Genre'),
+            published_year=book_data.get('Year')
+        )
+
+        # Add the book using the book service
+        book_id = book_service.create_book(new_book.to_dict())
+        created_books_ids.append(str(book_id))
+
+    # Return JSON response with the IDs of the newly created books
+    return jsonify({'created_books_ids': created_books_ids}), 201
+
 # Route to update an existing book
 @app.route('/api/books/<string:book_id>', methods=['PUT'])
 def update_book(book_id):
