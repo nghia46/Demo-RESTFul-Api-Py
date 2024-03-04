@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from datetime import datetime
 
-client = MongoClient('mongodb+srv://nghialoe46:Akaka0406@nghialoe-cluster.ybgooth.mongodb.net/')
+client = MongoClient('Yours mongo connection string')
 db = client['MyDatabase']
 
 class Repository:
