@@ -1,8 +1,10 @@
 from flask import Flask
 from repository import Repository
 from service import BookService
+from flasgger import Swagger
 
 app = Flask(__name__)
+swagger = Swagger(app)
 
 # Instantiate repository and book service
 repository = Repository('books')

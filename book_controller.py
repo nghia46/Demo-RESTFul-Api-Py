@@ -1,8 +1,8 @@
 from flask import jsonify, request
 from bson.objectid import ObjectId
-from book import Book  # Import the Book model
+from book import Book 
 
-from app import app, book_service  # Import the Flask app instance and the book service
+from app import app, book_service
 
 # Route to retrieve all books
 @app.route('/api/books', methods=['GET'])
