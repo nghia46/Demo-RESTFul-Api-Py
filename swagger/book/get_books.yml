@@ -4,12 +4,16 @@ responses:
     schema:
       type: array
       items:
-        properties:
-          title:
-            type: string
-          author:
-            type: string
-          genre:
-            type: string
-          published_year:
-            type: integer
+        $ref: '#/definitions/Book'
+definitions:
+  Book:
+    type: object
+    properties:
+      title:
+        type: string
+      author:
+        type: string
+      genre:
+        type: string
+      published_year:
+        type: integer

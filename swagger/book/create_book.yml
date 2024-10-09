@@ -3,23 +3,36 @@ parameters:
     in: body
     required: true
     schema:
-      properties:
-        title:
-          type: string
-        author:
-          type: string
-        genre:
-          type: string
-        published_year:
-          type: integer
+      $ref: '#/definitions/Book'
+    description: The book data to create
 responses:
   201:
     description: Book created successfully
     schema:
-      properties:
-        _id:
-          type: string
-        title:
-          type: string
-        author:
-          type: string
+      $ref: '#/definitions/BookResponse'
+  400:
+    description: Invalid input
+definitions:
+  Book:
+    type: object
+    properties:
+      title:
+        type: string
+      author:
+        type: string
+      genre:
+        type: string
+      published_year:
+        type: integer
+    required:
+      - title
+      - author
+  BookResponse:
+    type: object
+    properties:
+      _id:
+        type: string
+      title:
+        type: string
+      author:
+        type: string
