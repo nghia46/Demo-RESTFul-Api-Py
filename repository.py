@@ -1,7 +1,16 @@
+import os
 from pymongo import MongoClient
 from datetime import datetime
+from dotenv import load_dotenv
 
-client = MongoClient('mongodb://localhost:27017')
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Fetch MongoDB URI from environment variable
+MONGO_URI = os.getenv('MONGO_URI')
+
+client = MongoClient(MONGO_URI)
 db = client['BookDatabase']
 
 class Repository:
