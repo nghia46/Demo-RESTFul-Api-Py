@@ -1,0 +1,33 @@
+parameters:
+  - name: book_id
+    in: path
+    type: string
+    required: true
+    description: The ID of the book to update
+  - name: body
+    in: body
+    required: true
+    schema:
+      properties:
+        title:
+          type: string
+        author:
+          type: string
+        genre:
+          type: string
+        published_year:
+          type: integer
+    description: The book data to update
+responses:
+  200:
+    description: Book updated successfully
+    schema:
+      properties:
+        message:
+          type: string
+  404:
+    description: Book not found
+    schema:
+      properties:
+        error:
+          type: string

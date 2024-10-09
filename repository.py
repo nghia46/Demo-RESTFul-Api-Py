@@ -1,8 +1,8 @@
 from pymongo import MongoClient
 from datetime import datetime
 
-client = MongoClient('Yours mongo connection string')
-db = client['MyDatabase']
+client = MongoClient('mongodb://localhost:27017')
+db = client['BookDatabase']
 
 class Repository:
     def __init__(self, collection_name):

@@ -1,0 +1,21 @@
+parameters:
+  - name: book_id
+    in: path
+    type: string
+    required: true
+    description: The ID of the book to retrieve
+responses:
+  200:
+    description: The requested book
+    schema:
+      properties:
+        title:
+          type: string
+        author:
+          type: string
+        genre:
+          type: string
+        published_year:
+          type: integer
+  404:
+    description: Book not found

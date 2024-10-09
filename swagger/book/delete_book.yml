@@ -1,0 +1,19 @@
+parameters:
+  - name: book_id
+    in: path
+    type: string
+    required: true
+    description: The ID of the book to delete
+responses:
+  200:
+    description: Book deleted successfully
+    schema:
+      properties:
+        message:
+          type: string
+  404:
+    description: Book not found
+    schema:
+      properties:
+        error:
+          type: string

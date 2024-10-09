@@ -1,0 +1,25 @@
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      properties:
+        title:
+          type: string
+        author:
+          type: string
+        genre:
+          type: string
+        published_year:
+          type: integer
+responses:
+  201:
+    description: Book created successfully
+    schema:
+      properties:
+        _id:
+          type: string
+        title:
+          type: string
+        author:
+          type: string

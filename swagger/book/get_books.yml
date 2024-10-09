@@ -1,0 +1,15 @@
+responses:
+  200:
+    description: A list of all books
+    schema:
+      type: array
+      items:
+        properties:
+          title:
+            type: string
+          author:
+            type: string
+          genre:
+            type: string
+          published_year:
+            type: integer
